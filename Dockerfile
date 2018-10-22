@@ -16,4 +16,4 @@ RUN apk add --no-cache --virtual=build-dependencies wget ca-certificates unzip &
     mkdir -p "/usr/lib/jvm/java-8-oracle" && \
     mv "/tmp/jre1.8.0_192" "/usr/lib/jvm/java-8-oracle/jre" && \
     ln -s "java-8-oracle" "/usr/lib/jvm/default-jvm" && \
-    ln -s "$JAVA_HOME/jre/bin/"* "/usr/bin/" && \
+    ln -s "/usr/lib/jvm/default-jvm/jre/bin/"* "/usr/bin/" && \
