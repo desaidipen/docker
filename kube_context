@@ -1,0 +1,12 @@
+#!/bin/bash
+
+__kube_ps1()
+{
+    # Get current context
+    CONTEXT=$(cat /root/.kube/config | grep "current-context:" | sed "s/current-context: //")
+    NAMESPACE=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
+
+    if [ -n "$CONTEXT" ]; then
+        echo "[ ${CONTEXT} | ${NAMESPACE} ]"
+    fi
+}
